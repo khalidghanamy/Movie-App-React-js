@@ -78,7 +78,7 @@ console.log(<Search/>?0:1);
     activeClassName={'page-item'}
     disabledClassName={"page-item"}
 
-    /> */}
+    /> 
   
   
   </>
