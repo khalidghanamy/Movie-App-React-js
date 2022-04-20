@@ -19,14 +19,18 @@ import SearchResult from "./components/searchResult";
 function App(data) {
 
   const [currentPage,setCurrentPage] = useState(1)
-  
+  let pageCountt=10
   let handlePageChange =(e)=>{
   
-  setCurrentPage(e.selected+1)
-}
+    setCurrentPage(e.selected+1)
 
-console.log(<Search/>?0:1);
+    pageCountt= (pageCountt + e.selected+1)|10
+    console.log(pageCountt);
+  }
 
+  console.log(pageCountt);
+  
+console.log(currentPage);
   return (
   <>
   
@@ -36,7 +40,7 @@ console.log(<Search/>?0:1);
 {/* ==================================================== */}
     <Navbar/>
     <div className="row  mt-3 d-flex text-center mx-5 ">
-     <Search/>
+    
       </div>
 
 {/* ==================================================== */}
@@ -46,7 +50,7 @@ console.log(<Search/>?0:1);
       {/* <Route path="/" element={< Home />}/>  */}
 
       <Route path="/movies" element={< Movies data={currentPage} />}/>
-      <Route path="/search" element={< SearchResult />}/>
+      <Route path="/search" element={ <Search data={currentPage}/> }/>
       <Route path='/:id' element={< MovieDetails />}/>
       
 
@@ -62,7 +66,7 @@ console.log(<Search/>?0:1);
      previousLabel={'previous'}
     nextLabel={'next'}
     breakLabel={'....'}
-    pageCount={10}
+    pageCount={pageCountt}
     marginPagesDisplayed={3}
     pageRangeDisplayed={6}
     onPageChange={handlePageChange}
@@ -77,6 +81,7 @@ console.log(<Search/>?0:1);
     breakClassName={'page-item'}
     activeClassName={'page-item'}
     disabledClassName={"page-item"}
+    
 
     /> 
   

@@ -6,7 +6,6 @@ function MovieCard({ data: { poster_path, id, title, release_date } }) {
 
   const img = `https://image.tmdb.org/t/p/w500/${poster_path}`;
 
-  console.log(poster_path);
   return (
     <>
       <img className="card-img m-0 p-0" src={img} alt={title} />

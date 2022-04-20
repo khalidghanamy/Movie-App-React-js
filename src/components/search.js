@@ -4,46 +4,47 @@ import MovieCard from "./movieCard";
 import SearchResult from "./searchResult";
 import { Link } from "react-router-dom";
 
-export function Search() {
+export function Search({data}) {
   const [movieName, setMovieName] = useState([]);
   const [moviesearchName, setmovieSearchName] = useState("");
-
+console.log(data);
+let currentPage1 = data ||1
   const  handleChange = (e) => {
     setmovieSearchName(e.target.value);
 }
 
-const getData =() => {
-    axiosInstanceSearch
-    .get(`?query=${moviesearchName}`)
-    .then((response) => {
-      response.data.results.length > 0 &&
-      setMovieName(response.data.results)
 
-    })
-    .catch((error) => {
-        console.log(error);
-      });
-}
+useEffect(() => {
+  getData()
+  },[data])
+
+  const getData =() => {
+    let paginater ='';
+    currentPage1
+    &&(paginater =`${'&page'}=${currentPage1}`)
+    let urll=`?query=${moviesearchName}${paginater}`
+  
+  console.log(urll);
+      axiosInstanceSearch
+      .get(urll)
+      .then((response) => {
+        response.data.results.length > 0 &&
+        setMovieName(response.data.results)
+        console.log(response.data.results);
+      })
+      .catch((error) => {
+          console.log(error);
+        });
+  }
+
+
   const handleSubmitClick = (e) => {
       e.preventDefault();
       getData()
-
-      // return (
-      //     <>
-      //     {/* <Link
-      //   to={{
-      //     pathname: "/search",
-      //     state: { movie },
-      //   }}
-      // >
-      //   Go to courses
-      // </Link> */}
-
-      //     </>
-      // )
      
   };
 
+ 
 
 
   const movie = movieName.map((res) => {
@@ -61,6 +62,7 @@ const getData =() => {
 
   return (
     <>
+    
       <form
         className="row d-flex justify-content-center"
         action="action_page.php"
@@ -79,4 +81,4 @@ const getData =() => {
   );
 }
 
-export default SearchResult(Search);
+// export default SearchResult(Search);

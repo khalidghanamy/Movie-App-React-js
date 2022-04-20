@@ -4,10 +4,9 @@ import { useLocation } from 'react-router-dom';
 
 
 const SearchResult=(movie) =>{
-console.log(movie);
   return (
     <>
-    
+    <h2>sdfvcfdvdfvfdvfdv</h2>
     </>
   );
 }

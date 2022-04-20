@@ -8,8 +8,8 @@ function Navbar() {
         <div className="row ">
         <NavLink className="nav-link nav-item col-sm-4 col-md-4 col-lg-4 text-center" to="/" >Home</NavLink>
         <NavLink className="nav-link nav-item col-sm-4 col-md-4 col-lg-4 text-center" to="/movies" >Movie</NavLink>
-        <NavLink className="nav-link nav-item col-sm-4 col-md-4 col-lg-4 text-center" to="/favorite" >Favorite</NavLink>
-           
+        <NavLink className="nav-link nav-item col-sm-4 col-md-4 col-lg-4 text-center" to="/search" >Search</NavLink>
+        
         </div>
 
        
