@@ -68,13 +68,13 @@ useEffect(() => {
         action="action_page.php"
         onSubmit={(e) => handleSubmitClick(e)}
       >
-        <input type="text" className='col-6 navbar-search-autocomplete'  style={{ background:'lightblue'}} placeholder="Search.." id="search" onChange={(e) => handleChange(e)}/>
+        <input type="text" className='col-6 btn'  style={{ background:'lightblue'}} placeholder="Search.." id="search" onChange={(e) => handleChange(e)}/>
         <button type="submit" className='col-1 btn-danger d-flex justify-content-center'>
           <i className=" fa fa-search "></i>
         </button>
    
       </form>
-      <div className="row d-flex justify-content-center mt-5">
+      <div className="row d-flex justify-content-center mt-5 mb-5">
       {movie}
       </div>
     </>

@@ -24,13 +24,10 @@ function App(data) {
   
     setCurrentPage(e.selected+1)
 
-    pageCountt= (pageCountt + e.selected+1)|10
-    console.log(pageCountt);
+    
   }
 
-  console.log(pageCountt);
   
-console.log(currentPage);
   return (
   <>
   
@@ -61,16 +58,16 @@ console.log(currentPage);
 
   </BrowserRouter>
 
-
+<div className="fixed-bottom">
   <ReactPaginate  
      previousLabel={'previous'}
     nextLabel={'next'}
     breakLabel={'....'}
-    pageCount={pageCountt}
+    pageCount={10}
     marginPagesDisplayed={3}
     pageRangeDisplayed={6}
     onPageChange={handlePageChange}
-    containerClassName={'pagination justify-content-center'}    
+    containerClassName={'pagination justify-content-center fixwd-bottom'}    
     pageClassName={'page-item mt-3'}
     pageLinkClassName={'page-link'}
     previousLinkClassName={'page-link'}
@@ -81,10 +78,10 @@ console.log(currentPage);
     breakClassName={'page-item'}
     activeClassName={'page-item'}
     disabledClassName={"page-item"}
-    
+  
 
     /> 
-  
+    </div>
   
   </>
   
